@@ -8,14 +8,14 @@ export const CreateUserDTO = userSchema.pick(// re use userSchema
         mobileNumber:true,
         password:true,
     }
-).extend({
-    confirmPassword: z.string().min(6),
-}).refine(
-    (data) => data.password === data.confirmPassword,
-    {
-        message: "Passwords do not match",
-        path: ["confirmPassword"],
-    }
+// ).extend({
+//     confirmPassword: z.string().min(6),
+// }).refine(
+//     (data) => data.password === data.confirmPassword,
+//     {
+//         message: "Passwords do not match",
+//         path: ["confirmPassword"],
+//     }
 );
 
 export type CreateUserDTO = z.infer<typeof CreateUserDTO>;
